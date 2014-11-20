@@ -9,27 +9,9 @@
     <h2>Site map</h2>
     <ul>
       <li>
-        <p><a href="http://nixon.no-ip.biz:50080/api">Link to API documentation</a></p> 
+        <p><a href="/api">Link to API documentation</a></p> 
       </li>
     </ul>
   </div>
   </body>
-  <script>
-    console.log("hello");
-        document.addEventListener('click', function(event) {
-      var target = event.target;
-      if (target.tagName.toLowerCase() == 'a')
-      {
-          var port = target.getAttribute('href').match(/^:(\d+)(.*)/);
-          if (port)
-          {
-             target.href = port[2];
-             target.port = port[1];
-             console.log(port[1]);
-             target.href = target.href.replace("/:"+target.port, "");
-          }
-      }
-    }, false);
-
-  </script>
 </html>
