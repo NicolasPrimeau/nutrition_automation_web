@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fridge</title>
+    <title>Bins</title>
 
     <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/css_includes.html"); ?>
 

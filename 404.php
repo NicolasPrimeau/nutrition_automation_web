@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fridge</title>
+    <title>404</title>
 
     <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/css_includes.html"); ?>
 
@@ -25,7 +25,7 @@
                     <div class="col-lg-12">
 
                     <!-- Add content here -->
-                    <p> Here be dragons</p>
+                    <p> 404 Error</p>
 
                     </div>
                     <!-- /.col-lg-12 -->
