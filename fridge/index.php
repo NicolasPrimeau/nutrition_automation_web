@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fridge</title>
+    <title>Nutrition Automation - Home</title>
 
     <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/css_includes.html"); ?>
 

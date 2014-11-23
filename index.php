@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
