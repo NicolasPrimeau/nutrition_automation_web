@@ -112,7 +112,7 @@
 
                         ?>
                         <li>
-                            <a class="text-center" href="/fridge/bins">
+                            <a class="text-center" href="/fridge/bins/index.php">
                                 <strong>See All Data</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
