@@ -52,23 +52,25 @@
                         <?php
                           include($_SERVER['DOCUMENT_ROOT'] . "/api/API_functions.php");
                           $concerns = getConcerns();
-                          foreach($concerns['info'] as $alert_set){
-                            var_dump($alert_set);
-                            for($i=0;$i<count($alert_set && $i < 8);$i++){
+                           
+                          foreach($concerns as $concern){
+                            foreach($concern['info'] as $alert_set){ 
+                              for($i=0;$i<count($alert_set) && $i < 8;$i++){
                             ?> 
                               <li>
                                 <a href="#">
                                   <div>
-                                      <i class="fa fa-envelope fa-fw"></i> <?php echo $alert_set['message']['plain']; ?>
+                                      <i class="fa fa-envelope fa-fw"></i>
+                                      <?php echo $alert_set[$i]['subject']; ?>
                                       <span class="pull-right text-muted small">? minutes ago</span>
                                   </div>
                                 </a>
                               </li>
                               <li class="divider"></li>
                             <?php
-                            } 
+                              } 
+                            }
                           }
- 
                         ?>
 
                         <li>
