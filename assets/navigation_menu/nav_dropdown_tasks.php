@@ -89,7 +89,7 @@
                           foreach($recent_data as $rd){
                           ?>                  
                             <li>
-                              <a href="/fridge/bin?=<?php echo $rd['bin']; ?>">
+                              <a href="/fridge/bins/single_bin.php?bin=<?php echo $rd['bin']; ?>">
                                   <div>
                                       <p>
                                           <strong>Bin <?php echo $rd['bin']; ?></strong>
@@ -113,7 +113,7 @@
                         ?>
                         <li>
                             <a class="text-center" href="/fridge/bins/index.php">
-                                <strong>See All Data</strong>
+                                <strong>See All Bins</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
