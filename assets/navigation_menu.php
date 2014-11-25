@@ -4,7 +4,7 @@
        
 <!-- Construct dropdown menus on top right of page -->
             <ul class="nav navbar-top-links navbar-right">
-              <?php require("navigation_menu/nav_dropdown_messages.php"); ?>
+              <?php //No need for now require("navigation_menu/nav_dropdown_messages.php"); ?>
               <?php require("navigation_menu/nav_dropdown_tasks.php"); ?>
               <?php require("navigation_menu/nav_dropdown_alerts.php"); ?>  
               <?php require("navigation_menu/nav_dropdown_user.html"); ?>
