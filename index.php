@@ -26,8 +26,9 @@
                     <div class="col-lg-12">
 
                     <!-- Add content here -->
-                    <p> Here be dragons</p>
-
+                   <!-- <p> Here be dragons</p> -->
+		   <h1> Dashboard <h1/>
+			
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

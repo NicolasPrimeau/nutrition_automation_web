@@ -13,13 +13,9 @@ function getQuantityData(){
 
   $db = $client->selectDB('Nutrition_Automation');
   $collection = $db->selectCollection('food_data');
-  $query = array();
 
-  if($_GET['bin'] != NULL){
-    $query['bin'] = (int)$_GET['bin'];
-  }
 
-  $cursor = $collection->find($query);
+  $cursor = $collection->find();
   $cursor = returnArray($cursor);
   $client->close();
   return $cursor;
