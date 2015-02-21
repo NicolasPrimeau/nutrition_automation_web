@@ -1,0 +1,10 @@
+<?php
+
+echo "afagag";
+$data = getQuantityData();
+echo "af";
+foreach($data as $obj){
+//echo $obj['bin'];
+}
+?>
+

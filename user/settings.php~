@@ -44,13 +44,13 @@
 				    </div>
 				    <div class="col-xs-9 text-right">
 					<div class="huge"> </div>
-				   <div>Bins</div>
+				   <div>Alerts</div>
 				</div>
 			     </div>
 			  </div>
 			  <a href="#">
 			     <div class="panel-footer">
-				<a href="/user/settings/config_bins.php"><span class="pull-left">Configure Bins</span></a>
+				<a href="/user/settings/set_alerts.php"><span class="pull-left">Set Alerts</span></a>
 				<span class="pull-right">
 				  <i class="fa fa-arrow-circle-right"></i>
 				</span>

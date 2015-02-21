@@ -26,7 +26,67 @@
                     <div class="col-lg-12">
 
                     <!-- Add content here -->
-                    <p> Here be dragons</p>
+                    <!--<p> Here be dragons</p>-->
+		    <div class="panel panel-default">
+			   <div class="panel-heading">
+			            Users
+				</div>
+			   <!-- /.panel-heading -->
+			  <div class="panel-body">
+			     <div class="table-responsive">
+				   <?php
+				
+ 				$conn = new Mongo();
+
+				
+ 				$db = $conn->Nutrition_Automation;
+
+
+ 				$collection = $db->contacts;
+
+				
+ 				$cursor = $collection->find();
+
+
+				
+				echo '<table class="table table-striped">';
+					
+				echo "<thead>";
+				
+				
+				
+				
+				echo "<tr><th>".User."</th>";
+				echo "<th>".Email."</th>";
+				echo "<th>".Phone." ".Number."</th></tr>";				
+                               
+				echo "</thead>";
+				echo "<tbody>";
+				
+			
+				$i = 1;
+
+ 				foreach ($cursor as $obj) {
+			          
+				  echo "<tr><td>".$obj['name']."</td>";
+ 				  echo "<td>".$obj['email']."</td>";
+				  echo "<td>".$obj['phone']."</td></tr>";
+				  
+ 				    
+ 			            
+				}
+
+				echo "</tbody>";
+				echo '</table>';
+				?>
+			     </div>
+			</div>
+		      </div>
+			<br>
+			<br>
+			<a class="btn" href="/user/settings/update_profile.php">
+			<button type="button" class="btn btn-primary btn-lg">Update Profile</button>
+		   	</a>
 
                     </div>
                     <!-- /.col-lg-12 -->

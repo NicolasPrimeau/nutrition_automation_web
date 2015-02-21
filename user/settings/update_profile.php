@@ -1,3 +1,46 @@
+<?php
+	/*$name = "";
+	if( $_POST['name']){
+		$name = $_POST['name'];
+	}*/
+	//if($name != "" && email != ""){
+
+	//$user = array();
+	//$user['name'] = $name;
+	//update_profile($user);
+	//refresh();
+	//}
+ 
+	$FormStatus = "";
+	if( $_POST["name"] && $_POST["email"] && $_POST['phone']){
+	$FormStatus = "";
+	$conn = new Mongo();
+	
+				
+ 	$db = $conn->Nutrition_Automation;
+
+
+ 	$collection = $db->contacts;
+	
+	$cursor = $collection->find();
+	
+	$newdata = array("name"=>$_POST['name'],"email"=>$_POST['email'],"phone"=>$_POST['phone']);
+	
+	//$info=setContacts($newdata);
+	
+ 	$collection->update($cursor, $newdata);
+	header("Location: /user/index.php");
+	
+	exit;
+	}
+	else
+	{
+	$FormStatus="Fail";
+	}
+
+?>
+
+
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +51,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Nutrition Automation - Home</title>
+    <title>Nutrition Automation</title>
 
     <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/css_includes.html"); ?>
 
@@ -18,7 +61,7 @@
 
     <div id="wrapper">
       <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/navigation_menu.php"); ?>
-
+	
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -27,54 +70,26 @@
 
                     <!-- Add content here -->
                     <!--<p> Here be dragons</p>-->
-		    
-                    <div class="panel panel-default">
-			   <div class="panel-heading">
-			            Alerts
-				</div>
-			   <!-- /.panel-heading -->
-			  <div class="panel-body">
-			     <div class="table-responsive">
-				<?php
-				
-				$conn = new Mongo();
-
-				
- 				$db = $conn->Nutrition_Automation;
-
-
- 				$collection = $db->concerns;
-
-				
- 				$cursor = $collection->find();
-
-
-				echo '<table class="table table-striped">';
-				    echo "<thead>";
-				      
-					echo "<tr><th>".Alert."</th>";
-				
-					echo "<th>".Date."</th>";
-
-					echo "<th>".Description."</th></tr>";
-				      
-			            echo "</thead>";
-				    echo "<tbody>";
-				    foreach($cursor as $obj){
-					  $i = 1;
-					  echo "<tr><td>".$i."</td>";
-					  echo "<td>".date('Y-m-d H:i:s',$obj['date']->sec)."</td>";
-					  echo "<td>".$obj['info']."</td></tr>";
-					  $i = $i + 1;
-				    }
-			            echo "</tbody>";
-				echo '</table>';
-				?>
-			     </div>
-			</div>
-		      </div>
-		    </div>       
-             
+		
+		    <form action="update_profile.php" method="POST">
+			Name:<br>
+			<input type="text" name="name">
+			<br>
+			Email:<br>
+			<input type="text" name="email">
+			<br>
+			Phone Number:<br>
+			<input type="text" name="phone">
+			<br>
+			<br>
+			<input type="submit" class="btn btn-primary btn"/>
+			<?php
+			if($FormStatus=="Fail"){
+			    echo "Please enter all information";
+			}
+			?>
+			</form>
+			
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

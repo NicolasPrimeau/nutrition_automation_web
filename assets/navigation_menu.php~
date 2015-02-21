@@ -1,24 +1,24 @@
        <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <?php require("navigation_menu/nav_header.html"); ?>
-    
+<?php echo "Line 1"?>       
 <!-- Construct dropdown menus on top right of page -->
             <ul class="nav navbar-top-links navbar-right">
               <?php //No need for now require("navigation_menu/nav_dropdown_messages.php"); ?>
-
-             <?php require("navigation_menu/nav_dropdown_tasks.php"); ?>
-
+<?php echo "Line 2"?>
+              <?php require("navigation_menu/nav_dropdown_tasks.php"); ?>
+<?php echo "Line 3"?>
               <?php require("navigation_menu/nav_dropdown_alerts.php"); ?>  
-
+<?php echo "Line 4"?>
               <?php require("navigation_menu/nav_dropdown_user.html"); ?>
             </ul>
-
+<?php echo "Line 5"?>
 <!-- Dropdown messages complete -->
 
 <!-- Construct left hand side menus -->
         <?php require("navigation_menu/sidebar_menu.html"); ?>
 <!-- Done -->
-
+<?php echo "Line 6"?>
         </nav>
 
 

@@ -1,0 +1,113 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Nutrition Automation</title>
+
+    <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/css_includes.html"); ?>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+      <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/navigation_menu.php"); ?>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                    <!-- Add content here -->
+                    <!--<p> Here be dragons</p>-->
+		    <h1 class="page-header">Bin Configuration</h1>
+		    </div>
+		</div>
+			
+		    <div class="row">
+			<div class="col-lg-12">
+			    <div class="panel panel-default">
+				<div class="panel-heading">
+				</div>
+			    <div class="panel-body">
+				<div class="row">
+				    <div class="col-lg-12">
+					<form action="config_bins.php" method=POST role="form">
+					   <div class="form-group">
+						<label>Select Bin</label>
+						<select name="bin" class="form-control">
+						<?php
+						$conn = new Mongo();
+
+				
+ 						$db = $conn->Nutrition_Automation;
+
+
+ 						$collection = $db->config;
+
+				
+ 						$cursor = $collection->find();
+						
+						foreach($cursor as $obj){
+						   
+						    //if($obj['bin']->next < $obj['bin']){
+						    echo "<option>".$obj['bin']."</option>";
+						}
+						
+						?>
+						</select>
+					  </div>
+					  <div class="form-group">
+					     <label>Food</label>
+					     <input name="name" class="form-control">
+					  </div>
+					  <div class="form-group">
+					     <label>Type</label>
+					     <input name="type" class="form-control">
+					  </div>
+					  <div class="form-group">
+					  <label>Perishable</label>
+					  <select name='perishable' class="form-control">
+					     <option>True</option>
+					     <option>False</option>
+					 
+					  </select>
+					  </div>
+					  <div class="form-group">
+					     <label>Quantity</label>
+					     <input name="quantity" class="form-control">
+					  </div>
+					  <div class="form-group">
+					     <label>Date</label>
+					     <input name="date" class="form-control">
+					  </div>
+					  <input type="submit" class="btn btn-primary btn"/>
+					</form>
+				   </div>
+			     </div>
+			</div>
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/js_includes.html"); ?>
+
+</body>
+
+</html>

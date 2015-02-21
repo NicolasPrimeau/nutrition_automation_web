@@ -1,0 +1,8 @@
+<?php
+  	if( $_POST["name"] || $_POST["email"] || $_POST['phone'])
+ 	 {
+     	 echo $_POST['name']. "<br>";
+    	 echo $_POST['email']. " <br>";
+    	 exit();
+ 	 }
+	?>

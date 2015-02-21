@@ -59,7 +59,7 @@ if($_POST['message']){
 		<form action="messages.php" method="POST">
 			<!--<input type="message" name="Message" value="">-->
 			<textarea name="message" rows="5" cols="80">
-
+			Add your message here
 			</textarea>
 		        <br>
 			<br>

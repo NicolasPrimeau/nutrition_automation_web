@@ -73,7 +73,7 @@ function getContacts(){
   return $cursor;
 }
 
-/*function setContacts($newdata){
+function setContacts($newdata){
 
  	echo "afaf";
 
@@ -89,5 +89,5 @@ function getContacts(){
 	$collection->update($cursor, $newdata);
 	//$newdata = array("name"=>$_POST['name'],"email"=>$_POST['email'],"phone"=>$_POST['phone']);
 
-}*/
+}
 ?>

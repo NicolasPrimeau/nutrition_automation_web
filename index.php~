@@ -177,7 +177,7 @@
 			       <span class="pull-right text-muted small">
 				    <!--<em>5 minutes ago</em>-->
 					<?php 
-					echo "<em>";
+				echo "<em>";
                                           if ($days != 0)
                                             echo $days . "d ";
                                           if ($hours != 0)
