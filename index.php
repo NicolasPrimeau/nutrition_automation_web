@@ -105,7 +105,7 @@
 				
  				$cursor1 = $collection1->find();
 
-				$collection2 = $db->config;
+				$collection2 = $db->bins;
 				$cursor2 = $collection2->find();
 
 				

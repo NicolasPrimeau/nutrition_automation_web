@@ -58,7 +58,7 @@
 
 				
  				$cursor1 = $collection1->find();
-				$collection2 = $db->config;
+				$collection2 = $db->bins;
 				$cursor2 = $collection2->find();
 
 
@@ -81,7 +81,7 @@
 						}
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -120,7 +120,7 @@
 					        }
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
