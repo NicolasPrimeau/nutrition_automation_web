@@ -139,11 +139,11 @@
  				foreach ($cursor1 as $obj1) {
 			          
 				  //echo "<tr><td>".$obj1['bin']."</td>";
-				  //foreach($cursor2 as $obj2){
+				  foreach($cursor2 as $obj2){
 				    if($obj2['bin'] == $i){
 				      echo "<tr><td>".$obj2['name']."</td>";
 			            }
-				  //}
+				  }
  				  echo "<td>".$obj1['quantity']."</td>";
 				  //echo "<td>".date('Y-m-d',$obj1['date']->sec)."</td></tr>";
 				  //echo "<td>".date('Y-m-d H:i:s', strtotime(date($obj['date'])))."</td></tr>";
