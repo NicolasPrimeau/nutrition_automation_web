@@ -10,9 +10,10 @@ $collection1 = $db->food_data;
 
 $cursor1 = $collection1->find();
 
-$collection2 = $db->config;
+$collection2 = $db->bins;
 				
 $cursor2 = $collection2->find();
+
 
 
 $newdata1 = array('$set'=>(array("quantity"=>$_POST['quantity'],"date"=>$_POST['date'])));
@@ -49,7 +50,6 @@ $submissionStatus = "False";
 }
 
 ?>
-
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ $submissionStatus = "False";
  						$db = $conn->Nutrition_Automation;
 
 
- 						$collection = $db->config;
+ 						$collection = $db->bins;
 
 				
  						$cursor = $collection->find();
@@ -113,7 +113,8 @@ $submissionStatus = "False";
 						    
 						    echo "<option>".$obj['bin']."</option>";
 						}
-						
+					
+						$conn->close();	
 						?>
 						</select>
 					  </div>
@@ -123,24 +124,35 @@ $submissionStatus = "False";
 					  </div>
 					  <div class="form-group">
 					     <label>Type</label>
-					     <input name="type" class="form-control">
+					     <select name="type" class="form-control">
+                                             <?php
+                                                $conn = new Mongo();
+
+
+                                                $db = $conn->Nutrition_Automation;
+						$shelf_times = $db->shelftime;
+						$c3 = $shelf_times->find();
+
+						$word = Array();
+
+                                                foreach($c3 as $obj){
+						    
+						    if(!in_array($obj['type'], $word)){
+                                                      echo "<option>".$obj['type']."</option>";
+						      array_push($word, $obj['type']);
+						}
+                                                }
+						$conn->close();
+                                                ?>
 					  </div>
-					  <div class="form-group">
-					  <label>Perishable</label>
-					  <select name='perishable' class="form-control">
-					     <option>True</option>
-					     <option>False</option>
-					 
-					  </select>
-					  </div>
-					  <div class="form-group">
+					  <!-- <div class="form-group">
 					     <label>Quantity</label>
-					     <input name="quantity" class="form-control">
-					  </div>
-					  <div class="form-group">
+					     <select name="quantity" class="form-control">
+					  </div> -->
+					  <!-- <div class="form-group">
 					     <label>Date</label>
 					     <input name="date" class="form-control">
-					  </div>
+					  </div> -->
 					  <input type="submit" class="btn btn-primary btn"/>
 					  <?php
 						echo "<br>";
