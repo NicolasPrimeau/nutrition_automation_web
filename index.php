@@ -1,7 +1,7 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
 
 <?php
-  // Check active session
+  /*// Check active session
   if(!isset($_SESSION)){ session_start(); }
   //Check for user details/authenticate that the page is being visited by an authenticated user
   if(empty($_SESSION['user']))
@@ -10,7 +10,7 @@
     header("Location: login.php");
     exit;
   }
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +79,7 @@
 		</div>
 
 		  <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
 
                     <!-- Add content here -->
                     <!-- <p> Here be dragons</p> -->
@@ -136,21 +136,37 @@
 				   //echo "<br>";
 				//}
 				$i=1;
- 				foreach ($cursor1 as $obj1) {
+ 				/*foreach ($cursor1 as $obj1) {
 			          
 				  //echo "<tr><td>".$obj1['bin']."</td>";
+				if($obj1['bin'] == $i){
 				  foreach($cursor2 as $obj2){
 				    if($obj2['bin'] == $i){
 				    echo "<tr><td>".$obj2['name']."</td>";
 			            }
 				  }
+				}
  				  echo "<td>".$obj1['quantity']."</td>";
-				  //echo "<td>".date('Y-m-d',$obj1['date']->sec)."</td></tr>";
+				  echo "<td>".date('Y-m-d',$obj1['date']->sec)."</td></tr>";
 				  //echo "<td>".date('Y-m-d H:i:s', strtotime(date($obj['date'])))."</td></tr>";
-				  echo "<td>".$obj1['date']."</td></tr>";
-				  $i=$i+1;
+				  //echo "<td>".$obj1['date']."</td></tr>";
+				 // $i=$i+1;*/
+				while($i < 5){
+				 foreach($cursor1 as $obj1){
+					
+					
+					if($obj1['bin'] == $i){
+					    foreach($cursor2 as $obj2){
+						if($obj2['bin'] == $i){
+						echo "<tr><td>".$obj2['name']."</td>";
+						}
+					    }
+					    echo "<td>".$obj1['quantity']."</td>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					}
+				    }
  				    
- 			            
+ 			            $i = $i + 1;
 				}
 
 				echo "</tbody>";
@@ -162,7 +178,7 @@
                      </div>
 		   </div>
 
-	 	    <div class="col-lg-4">
+	 	   <!-- <div class="col-lg-4">
 		       <div class="panel panel-default">
 			  <div class="panel-heading">
 			     <i class="fa fa-bell fa-fw"></i>
@@ -175,7 +191,7 @@
 				<i class="fa fa-comment fa-fw"></i>
 				New Messages
 			       <span class="pull-right text-muted small">
-				    <!--<em>5 minutes ago</em>-->
+				    
 					<?php 
 					echo "<em>";
                                           if ($days != 0)
@@ -226,7 +242,7 @@
                                             echo $secs . "s ";
                                           echo "ago</em>";
                                         ?>
-			         <!--<em>20 minutes ago</em>-->
+			         
 				</span>
 			     </a>
 			
@@ -242,7 +258,7 @@
 		       </div>
 		    </div>	
                   </div>
-		</div>
+		</div>-->
 
 		
             </div>

@@ -56,6 +56,8 @@ if($_POST['message']){
                    </div>
                 </div>
 
+
+		
 		<form action="messages.php" method="POST">
 			<!--<input type="message" name="Message" value="">-->
 			<textarea name="message" rows="5" cols="80">
@@ -66,6 +68,7 @@ if($_POST['message']){
 			
 			<input type="submit" class="btn btn-primary btn-lg">
 		</form>
+	
 		
 		<br>
 		<br>

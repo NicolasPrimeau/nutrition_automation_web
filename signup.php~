@@ -1,42 +1,42 @@
 <?php
-//start session to ensure after login, all the pages of applicaiton are accessible to only user who have logged in.
-session_start();
-//Check that the page is loading after the submission of form by pressing login button
-//Initialise the flag varaiable
-$LoginStatus = "";
-if(isset($_POST['Submit']))
-{
-  //Initialise the flag varaiable
-   $LoginStatus = "";
+	
+	$SignUpStatus = "";
+	if( $_POST["name"] && $_POST["email"] && $_POST["password"] &&$_POST['phone']){
+	$SignUpStatus = "";
+	$conn = new Mongo();
+	
+				
+ 	$db1 = $conn->Nutrition_Automation;
 
-  // store input values to variables
-  $username = trim($_POST['email']);
-  $password = trim($_POST['password']);
-  //Open session with MondoDB
-  $mongo = new Mongo();
-  $db = $mongo->security;
-  //Check if the credentials provided are valid
-  $user = $db->web_security->findOne(array("username" => $username, "password" => $password));
-//echo $user->count;  
-if ($user)
-  {
-    //Valid user, store the user details in session varaible, to acccess in other pags for authentication
-    $_SESSION['user'] = $username;
-    $_SESSION['logintime'] = time();
-    $LoginStatus = "Pass";
-    //redirect to next page
-    header("Location: index.php");
-    exit;
-   }
-    else
-   {
-   //Invalid credentials
-   $LoginStatus = "Fail";
-   }
-   
-}
+	$db2 = $conn->security;
 
-?>           
+
+ 	$collection1 = $db1->contacts;
+	
+	//$cursor1 = $collection1->find();
+	
+	$newdata1 = array("name"=>$_POST['name'],"email"=>$_POST['email'],"phone"=>$_POST['phone']);
+	
+	//$info=setContacts($newdata);
+	
+ 	$collection1->insert($newdata1);
+
+	$collection2 = $db2->web_security;
+	//$cursor2 = $collection2->find();
+	$newdata2 = array("username"=>$_POST['email'], "password"=>$_POST['password']);
+	$collection2 ->insert($newdata2);
+	
+	//$SignUpStatus="True";
+	header("Location: signup.php");
+	exit;
+	}
+	else
+	{
+	$SignUpStatus="Fail";
+	}
+
+?>
+
 
 
 <!DOCTYPE html>
@@ -84,18 +84,26 @@ if ($user)
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Sign Up</h3>
                     </div>
                     <div class="panel-body">
                        <!-- <form role="form">  -->
-			  <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
+			  <form id='signup' action='signup.php' method='post' accept-charset='UTF-8'>
                             <fieldset>
+				<div class="form-group">
+                                    <input class="form-control" placeholder="Name" name="name" type="name" value="">
+                                </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
+				<div class="form-group">
+                                    <input class="form-control" placeholder="Phone Number" name="phone" type="phone" value="">
+                                </div>
+
+				
                                 <!--<div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
@@ -103,14 +111,21 @@ if ($user)
                                 </div>-->
                                 <!-- Change this to a button or input when using this as a form -->
                                <!--<a href="index.php" class="btn btn-lg btn-success btn-block">Login</a> -->
-				  <a href="/signup.php">Sign Up</a>
-				  </br>
 				  
-				  <input type='submit' name='Submit' value='Login' class="btn btn-lg btn-success btn-block"/>
+				  
+				  
+				  <input type='submit' name='Submit' value='Sign Up' class="btn btn-lg btn-success btn-block"/>
+				<br>
+				<a href = "login.php">Back to Login Page</a>
 				<br>
  				<?php
-				if ($LoginStatus == "Fail")
-				echo "User id or Password incorrect. Please try again....";
+				/*if ($SignUpStatus == "True")
+					echo "Sign up succeed";
+					echo '<a href = "login.php">';
+					echo 'Back to Login Page';
+					echo '</a>';*/
+				if ($SignUpStatus == "Fail")
+					echo "Please enter all information";
     				  ?>
                             </fieldset>
                         </form>

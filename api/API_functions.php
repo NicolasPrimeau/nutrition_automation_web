@@ -49,6 +49,20 @@ function getConcerns(){
   return $cursor;
 }
 
+function getPlainConcerns(){
+	$client = new MongoClient();
+
+	$db = $client->selectDB('Nutrition_Automation');
+	$collection = $db->selectCollection('plain_concerns');
+	$query = array();
+
+	$cursor = $collection->find($query);
+	$cursor = returnArray($cursor);
+	$client->close();
+	return $cursor;
+}
+
+
 function getConfig(){
   $client = new MongoClient();
   $db = $client->selectDB('Nutrition_Automation');

@@ -1,4 +1,18 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
+
+<?php
+  // Check active session
+  if(!isset($_SESSION)){ session_start(); }
+  //Check for user details/authenticate that the page is being visited by an authenticated user
+  if(empty($_SESSION['user']))
+  {
+   // if not redirect to login page
+    header("Location: http://nutri_auto.com/login.php");
+    exit;
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +22,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Nutrition Automation - Home</title>
+    <title>Nutrition Automation</title>
 
     <?php require($_SERVER['DOCUMENT_ROOT'] . "/assets/css_includes.html"); ?>
 
@@ -24,7 +38,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-
+			<br>
                     <!-- Add content here -->
                     <!--<p> Here be dragons</p>-->
 		    <div class="panel panel-default">
@@ -64,14 +78,19 @@
 				echo "<tbody>";
 				
 			
-				$i = 1;
+				//$i = 1;
+
+				//echo "<tr>".$_SESSION['user']."</tr>";
 
  				foreach ($cursor as $obj) {
-			          
-				  echo "<tr><td>".$obj['name']."</td>";
- 				  echo "<td>".$obj['email']."</td>";
-				  echo "<td>".$obj['phone']."</td></tr>";
-				  
+				  //$_SESSION['user'] = $_POST['email'];
+			          if($_SESSION['user'] == $obj['email']){
+
+				  	echo "<tr><td>".$obj['name']."</td>";
+ 				  	echo "<td>".$obj['email']."</td>";
+				  	echo "<td>".$obj['phone']."</td></tr>";
+
+				  }
  				    
  			            
 				}

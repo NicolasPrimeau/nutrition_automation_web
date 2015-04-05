@@ -27,7 +27,7 @@
 
                     <!-- Add content here -->
                     <!--<p> Here be dragons</p>-->
-		    
+		    <br>
                     <div class="panel panel-default">
 			   <div class="panel-heading">
 			            Alerts
@@ -43,7 +43,7 @@
  				$db = $conn->Nutrition_Automation;
 
 
- 				$collection = $db->concerns;
+ 				$collection = $db->plain_concerns;
 
 				
  				$cursor = $collection->find();
@@ -60,11 +60,12 @@
 				      
 			            echo "</thead>";
 				    echo "<tbody>";
+				    $i = 1;
 				    foreach($cursor as $obj){
-					  $i = 1;
+					 
 					  echo "<tr><td>".$i."</td>";
 					  echo "<td>".date('Y-m-d H:i:s',$obj['date']->sec)."</td>";
-					  echo "<td>".$obj['info']."</td></tr>";
+					  echo "<td>".$obj['message']."</td></tr>";
 					  $i = $i + 1;
 				    }
 			            echo "</tbody>";

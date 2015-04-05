@@ -58,7 +58,7 @@
 
 				
  				$cursor1 = $collection1->find();
-				$collection2 = $db->config;
+				$collection2 = $db->bins;
 				$cursor2 = $collection2->find();
 
 
@@ -81,7 +81,7 @@
 						}
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -120,7 +120,7 @@
 					        }
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -138,22 +138,33 @@
                                 </div>
                             <div class="panel-body">
                              <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                      <tr>
-                                        <th>Food</th>
-                                        <th>Quantity</th>
-                                        <th>Date</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
-                                         <td> </td>
-                                         <td> </td>
-                                         <td> </td>
-                                       </tr>
-                                    </tbody>
-                                </table>
+                                <?php
+				
+
+
+				echo '<table class="table table-striped">';
+				    echo "<thead>";
+				      
+					echo "<tr><th>".Food."</th>";
+					echo "<th>".Quantity."</th>";
+					echo "<th>".Date."</th></tr>";
+				      
+			            echo "</thead>";
+				    echo "<tbody>";
+				    foreach($cursor1 as $obj1){
+					if($obj1['bin'] == 3){
+					    foreach($cursor2 as $obj2){
+						if($obj2['bin'] == 3){
+						echo "<tr><td>".$obj2['name']."</td>";
+					        }
+					    }
+					    echo "<td>".$obj1['quantity']."</td>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					}
+				    }
+			            echo "</tbody>";
+				echo '</table>';
+				?>
                              </div>
                         </div>
                       </div>
@@ -166,22 +177,33 @@
                                 </div>
                             <div class="panel-body">
                              <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                      <tr>
-                                        <th>Food</th>
-                                        <th>Quantity</th>
-                                        <th>Date</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
-                                         <td> </td>
-                                         <td> </td>
-                                         <td> </td>
-                                       </tr>
-                                    </tbody>
-                                </table>
+                                <?php
+				
+
+
+				echo '<table class="table table-striped">';
+				    echo "<thead>";
+				      
+					echo "<tr><th>".Food."</th>";
+					echo "<th>".Quantity."</th>";
+					echo "<th>".Date."</th></tr>";
+				      
+			            echo "</thead>";
+				    echo "<tbody>";
+				    foreach($cursor1 as $obj1){
+					if($obj1['bin'] == 4){
+					    foreach($cursor2 as $obj2){
+						if($obj2['bin'] == 4){
+						echo "<tr><td>".$obj2['name']."</td>";
+					        }
+					    }
+					    echo "<td>".$obj1['quantity']."</td>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					}
+				    }
+			            echo "</tbody>";
+				echo '</table>';
+				?>
                              </div>
                         </div>
                       </div>
@@ -194,22 +216,33 @@
                                 </div>
                             <div class="panel-body">
                              <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                      <tr>
-                                        <th>Food</th>
-                                        <th>Quantity</th>
-                                        <th>Date</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
-                                         <td> </td>
-                                         <td> </td>
-                                         <td> </td>
-                                       </tr>
-                                    </tbody>
-                                </table>
+                                <?php
+				
+
+
+				echo '<table class="table table-striped">';
+				    echo "<thead>";
+				      
+					echo "<tr><th>".Food."</th>";
+					echo "<th>".Quantity."</th>";
+					echo "<th>".Date."</th></tr>";
+				      
+			            echo "</thead>";
+				    echo "<tbody>";
+				    foreach($cursor1 as $obj1){
+					if($obj1['bin'] == 5){
+					    foreach($cursor2 as $obj2){
+						if($obj2['bin'] == 5){
+						echo "<tr><td>".$obj2['name']."</td>";
+					        }
+					    }
+					    echo "<td>".$obj1['quantity']."</td>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					}
+				    }
+			            echo "</tbody>";
+				echo '</table>';
+				?>
                              </div>
                         </div>
                       </div>
@@ -222,22 +255,33 @@
                                 </div>
                             <div class="panel-body">
                              <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                      <tr>
-                                        <th>Food</th>
-                                        <th>Quantity</th>
-                                        <th>Date</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
-                                         <td> </td>
-                                         <td> </td>
-                                         <td> </td>
-                                       </tr>
-                                    </tbody>
-                                </table>
+                                <?php
+				
+
+
+				echo '<table class="table table-striped">';
+				    echo "<thead>";
+				      
+					echo "<tr><th>".Food."</th>";
+					echo "<th>".Quantity."</th>";
+					echo "<th>".Date."</th></tr>";
+				      
+			            echo "</thead>";
+				    echo "<tbody>";
+				    foreach($cursor1 as $obj1){
+					if($obj1['bin'] == 6){
+					    foreach($cursor2 as $obj2){
+						if($obj2['bin'] == 6){
+						echo "<tr><td>".$obj2['name']."</td>";
+					        }
+					    }
+					    echo "<td>".$obj1['quantity']."</td>";
+					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					}
+				    }
+			            echo "</tbody>";
+				echo '</table>';
+				?>
                              </div>
                         </div>
                       </div>

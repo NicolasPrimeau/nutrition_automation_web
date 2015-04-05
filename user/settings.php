@@ -1,4 +1,18 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
+
+<?php
+  // Check active session
+  if(!isset($_SESSION)){ session_start(); }
+  //Check for user details/authenticate that the page is being visited by an authenticated user
+  if(empty($_SESSION['user']))
+  {
+   // if not redirect to login page
+    header("Location: http://nutri_auto.com/login.php");
+    exit;
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,6 +101,35 @@
 			  </a>
 		       </div>
 		    </div>
+
+		<div class="row">
+		   <div class="col-lg-3 col-md-6">
+			<div class="panel panel-green">
+			    <div class="panel-heading">
+				<div class="row">
+				    <div class="col-xs-3">
+					<i class="fa fa-support fa-5x">
+					</i>
+				    </div>
+				    <div class="col-xs-9 text-right">
+					<div class="huge"> </div>
+				   <div>Password Management</div>
+				</div>
+			     </div>
+			  </div>
+			  <a href="#">
+			     <div class="panel-footer">
+				<a href="/user/settings/passwords.php"><span class="pull-left">Change Password</span></a>
+				<span class="pull-right">
+				  <i class="fa fa-arrow-circle-right"></i>
+				</span>
+				<div class="clearfix"></div>
+			     </div>
+			  </a>
+		       </div>
+		    </div>		
+
+
 		</div>
 		
 

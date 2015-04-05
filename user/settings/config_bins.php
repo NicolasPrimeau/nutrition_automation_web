@@ -1,6 +1,6 @@
 <?php
 
-if($_POST['bin'] && $_POST['name'] && $_POST['type'] && $_POST['perishable'] && $_POST['quantity'] && $_POST['date']){
+if($_POST['bin'] && $_POST['name'] && $_POST['type'] /*&& $_POST['perishable'] && $_POST['quantity'] && $_POST['date']*/){
 
 $conn = new Mongo();
 
@@ -10,12 +10,22 @@ $collection1 = $db->food_data;
 
 $cursor1 = $collection1->find();
 
-$collection2 = $db->config;
+$collection2 = $db->bins;
 				
 $cursor2 = $collection2->find();
 
+$newdata2 = array('$set'=>(array("type"=>$_POST['type'],"name"=>$_POST['name'])));
+foreach($cursor2 as $obj2){
+  if($obj2['bin'] == $_POST['bin']){
+	
+	$collection2->update(array("type"=>$obj2['type'],"name"=>$obj2['name']),$newdata2);
 
-$newdata1 = array('$set'=>(array("quantity"=>$_POST['quantity'],"date"=>$_POST['date'])));
+	
+  }
+}
+
+//$newdata1 = array('$set'=>(array("bin"=>$_POST
+/*$newdata1 = array('$set'=>(array("quantity"=>$_POST['quantity'],"date"=>$_POST['date'])));
 foreach($cursor1 as $obj1){
   if($obj1['bin'] == $_POST['bin']){
 
@@ -36,7 +46,7 @@ foreach($cursor2 as $obj2){
 
 	
   }
-}
+}*/
 
 $submissionStatus = "True";
 //header("Location: /index.php");
@@ -103,7 +113,7 @@ $submissionStatus = "False";
  						$db = $conn->Nutrition_Automation;
 
 
- 						$collection = $db->config;
+ 						$collection = $db->bins;
 
 				
  						$cursor = $collection->find();
@@ -123,9 +133,14 @@ $submissionStatus = "False";
 					  </div>
 					  <div class="form-group">
 					     <label>Type</label>
-					     <input name="type" class="form-control">
+					     <select name="type" class="form-control">
+					     <!--<input name="type" class="form-control">-->
+					     <option>Fruit</option>
+					     <option>Meat</option>
+					     <option>Vegetable</option>
+					     </select>
 					  </div>
-					  <div class="form-group">
+					  <!--<div class="form-group">
 					  <label>Perishable</label>
 					  <select name='perishable' class="form-control">
 					     <option>True</option>
@@ -140,7 +155,7 @@ $submissionStatus = "False";
 					  <div class="form-group">
 					     <label>Date</label>
 					     <input name="date" class="form-control">
-					  </div>
+					  </div>-->
 					  <input type="submit" class="btn btn-primary btn"/>
 					  <?php
 						echo "<br>";

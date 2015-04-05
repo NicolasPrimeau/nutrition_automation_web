@@ -40,7 +40,8 @@
                           foreach($recent_data as $rd){
                           ?>                  
                             <li>
-                              <a href="/fridge/bins/single_bin.php?bin=<?php echo $rd['bin']; ?>">
+                             <!-- <a href="/fridge/bins/single_bin.php?bin=<?php echo $rd['bin']; ?>">-->
+				  <!--<a href="">-->
                                   <div>
                                       <p>
                                           <strong>Bin <?php echo $rd['bin']; ?></strong>
