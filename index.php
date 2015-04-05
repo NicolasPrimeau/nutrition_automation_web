@@ -142,7 +142,7 @@
 				if($obj1['bin'] == $i){
 				  foreach($cursor2 as $obj2){
 				    if($obj2['bin'] == $i){
-				    echo "<tr><td>".$obj2['name']."</td>";
+				      echo "<tr><td>".$obj2['name']."</td>";
 			            }
 				  }
 				}

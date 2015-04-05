@@ -24,8 +24,13 @@ foreach($cursor2 as $obj2){
   }
 }
 
+<<<<<<< HEAD
 //$newdata1 = array('$set'=>(array("bin"=>$_POST
 /*$newdata1 = array('$set'=>(array("quantity"=>$_POST['quantity'],"date"=>$_POST['date'])));
+=======
+
+$newdata1 = array('$set'=>(array("quantity"=>$_POST['quantity'],"date"=>$_POST['date'])));
+>>>>>>> 8ae75fe28c5a1363fdae85f646f24af029f81451
 foreach($cursor1 as $obj1){
   if($obj1['bin'] == $_POST['bin']){
 
@@ -59,7 +64,6 @@ $submissionStatus = "False";
 }
 
 ?>
-
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/php_includes.php"); ?>
 <!DOCTYPE html>
@@ -123,7 +127,8 @@ $submissionStatus = "False";
 						    
 						    echo "<option>".$obj['bin']."</option>";
 						}
-						
+					
+						$conn->close();	
 						?>
 						</select>
 					  </div>
@@ -134,6 +139,7 @@ $submissionStatus = "False";
 					  <div class="form-group">
 					     <label>Type</label>
 					     <select name="type" class="form-control">
+<<<<<<< HEAD
 					     <!--<input name="type" class="form-control">-->
 					     <option>Fruit</option>
 					     <option>Meat</option>
@@ -147,15 +153,40 @@ $submissionStatus = "False";
 					     <option>False</option>
 					 
 					  </select>
+=======
+                                             <?php
+                                                $conn = new Mongo();
+
+
+                                                $db = $conn->Nutrition_Automation;
+						$shelf_times = $db->shelftime;
+						$c3 = $shelf_times->find();
+
+						$word = Array();
+
+                                                foreach($c3 as $obj){
+						    
+						    if(!in_array($obj['type'], $word)){
+                                                      echo "<option>".$obj['type']."</option>";
+						      array_push($word, $obj['type']);
+						}
+                                                }
+						$conn->close();
+                                                ?>
+>>>>>>> 8ae75fe28c5a1363fdae85f646f24af029f81451
 					  </div>
-					  <div class="form-group">
+					  <!-- <div class="form-group">
 					     <label>Quantity</label>
-					     <input name="quantity" class="form-control">
-					  </div>
-					  <div class="form-group">
+					     <select name="quantity" class="form-control">
+					  </div> -->
+					  <!-- <div class="form-group">
 					     <label>Date</label>
 					     <input name="date" class="form-control">
+<<<<<<< HEAD
 					  </div>-->
+=======
+					  </div> -->
+>>>>>>> 8ae75fe28c5a1363fdae85f646f24af029f81451
 					  <input type="submit" class="btn btn-primary btn"/>
 					  <?php
 						echo "<br>";
