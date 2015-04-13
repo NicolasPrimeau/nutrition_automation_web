@@ -24,7 +24,7 @@ foreach($cursor2 as $obj2){
   }
 }
 
-<<<<<<< HEAD
+
 //$newdata1 = array('$set'=>(array("bin"=>$_POST
 /*$newdata1 = array('$set'=>(array("quantity"=>$_POST['quantity'],"date"=>$_POST['date'])));
 =======
@@ -139,7 +139,7 @@ $submissionStatus = "False";
 					  <div class="form-group">
 					     <label>Type</label>
 					     <select name="type" class="form-control">
-<<<<<<< HEAD
+
 					     <!--<input name="type" class="form-control">-->
 					     <option>Fruit</option>
 					     <option>Meat</option>
@@ -153,7 +153,7 @@ $submissionStatus = "False";
 					     <option>False</option>
 					 
 					  </select>
-=======
+
                                              <?php
                                                 $conn = new Mongo();
 
@@ -173,7 +173,7 @@ $submissionStatus = "False";
                                                 }
 						$conn->close();
                                                 ?>
->>>>>>> 8ae75fe28c5a1363fdae85f646f24af029f81451
+
 					  </div>
 					  <!-- <div class="form-group">
 					     <label>Quantity</label>
@@ -182,11 +182,11 @@ $submissionStatus = "False";
 					  <!-- <div class="form-group">
 					     <label>Date</label>
 					     <input name="date" class="form-control">
-<<<<<<< HEAD
+
 					  </div>-->
-=======
-					  </div> -->
->>>>>>> 8ae75fe28c5a1363fdae85f646f24af029f81451
+
+					   
+
 					  <input type="submit" class="btn btn-primary btn"/>
 					  <?php
 						echo "<br>";
@@ -200,6 +200,7 @@ $submissionStatus = "False";
 					
     				  	  ?>
 					</form>
+				    </div>
 				   </div>
 			     </div>
 			</div>

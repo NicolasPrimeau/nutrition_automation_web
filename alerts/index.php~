@@ -64,7 +64,7 @@
 				    foreach($cursor as $obj){
 					 
 					  echo "<tr><td>".$i."</td>";
-					  echo "<td>".date('Y-m-d H:i:s',$obj['date']->sec)."</td>";
+					  echo "<td>".date('Y-m-d H:i:s',$obj['date']->sec+(4*60*60))."</td>";
 					  echo "<td>".$obj['message']."</td></tr>";
 					  $i = $i + 1;
 				    }
