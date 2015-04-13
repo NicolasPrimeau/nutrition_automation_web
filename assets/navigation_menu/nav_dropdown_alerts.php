@@ -10,7 +10,7 @@
                           foreach($concerns as $concern){
        
                                 // WARNING, proper coding would be to set PHP to figure out how many hours differ from ISO date at local location, but lazyness and futility
-                               $date1 = $concern['date']->sec + (5*60*60);// WARNING, MongoDate assumes the date given is in ISO format
+                               $date1 = $concern['date']->sec + (4*60*60);// WARNING, MongoDate assumes the date given is in ISO format
                                                                                // When php converts this ISO format back into a unix timestring, it adds to 5h
                                                                                //  The fix is to add 5h (Or the current timezone time) to this time. 
                                 $date2 = time();
@@ -36,7 +36,7 @@
                                           if ($days == 0 && $hours == 0 && $mins == 0)
                                             echo $secs . "s ";
                                           echo "ago</span>";
-						
+					
                                         ?>
                                     </div>
                                   </a>

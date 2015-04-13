@@ -81,7 +81,7 @@
 						}
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:i Y-m-d',$obj1['date']->sec+(4*60*60))."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -120,7 +120,7 @@
 					        }
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:i Y-m-d',$obj1['date']->sec+(4*60*60))."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -159,7 +159,7 @@
 					        }
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:i Y-m-d',$obj1['date']->sec+(4*60*60))."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -198,7 +198,7 @@
 					        }
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:i Y-m-d',$obj1['date']->sec+(4*60*60))."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -237,7 +237,7 @@
 					        }
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:i Y-m-d',$obj1['date']->sec+(4*60*60))."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
@@ -276,7 +276,7 @@
 					        }
 					    }
 					    echo "<td>".$obj1['quantity']."</td>";
-					    echo "<td>".date('H:m Y-m-d',$obj1['date']->sec)."</td></tr>";
+					    echo "<td>".date('H:i Y-m-d',$obj1['date']->sec+(4*60*60))."</td></tr>";
 					}
 				    }
 			            echo "</tbody>";
